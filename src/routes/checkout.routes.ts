@@ -55,10 +55,11 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    findCheckoutData.companyData = req.body.customerData
+    findCheckoutData.customerData = req.body.customerData
     checkoutDataArray.splice(indexFound, 1, findCheckoutData)
     const msg = {
       status: '200 OK',
+      message: 'Checkout data updated of id ' + req.params.id
     };
     res.json(msg);
   },
